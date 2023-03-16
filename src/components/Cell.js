@@ -1,4 +1,12 @@
-export const Cell = ({ id, cell, setCells, go, setGo, cells }) => {
+export const Cell = ({
+    id,
+    cell,
+    setCells,
+    go,
+    setGo,
+    cells,
+    winningMessage,
+}) => {
     const clickHandler = (e) => {
         const taken =
             e.target.firstChild.classList.contains("circle") ||
@@ -31,7 +39,11 @@ export const Cell = ({ id, cell, setCells, go, setGo, cells }) => {
     };
 
     return (
-        <div className="square" id={id} onClick={clickHandler}>
+        <div
+            className="square"
+            id={id}
+            onClick={!winningMessage ? clickHandler : null}
+        >
             <div className={cell}></div>
         </div>
     );
